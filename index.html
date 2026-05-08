@@ -30,9 +30,11 @@
       <a class="brand" href="#home" aria-label="Meridian Attire home">Meridian Attire</a>
 
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-        <a href="#home" data-nav-link>Home</a>
+        <a href="#new-in" data-nav-link>New In</a>
         <a href="#summer-edit" data-nav-link>Summer Edit</a>
         <a href="#festival-edit" data-nav-link>Festival Edit</a>
+        <a href="#holiday-essentials" data-nav-link>Holiday Essentials</a>
+        <a href="#under-20" data-nav-link>Under &pound;20</a>
         <a href="#hair-accessories" data-nav-link>Hair Accessories</a>
         <a href="#sunglasses" data-nav-link>Sunglasses</a>
         <a href="#bags" data-nav-link>Bags</a>
@@ -118,6 +120,33 @@
         </article>
       </section>
 
+      <section class="edit-cards-section reveal-section" id="new-in" data-section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Editorial Picks</p>
+            <h2>The Meridian Edit</h2>
+          </div>
+          <p>Concise summer edits designed to help you find the right finishing touch faster.</p>
+        </div>
+        <div class="edit-card-grid">
+          <article>
+            <span>This Week's Festival Picks</span>
+            <h3>Statement details for long summer plans.</h3>
+            <a href="#festival-edit">Explore Festival Picks</a>
+          </article>
+          <article>
+            <span>The Under &pound;20 Edit</span>
+            <h3>Lightweight accessories with easy gifting appeal.</h3>
+            <a href="#under-20">Shop Under &pound;20</a>
+          </article>
+          <article>
+            <span>Holiday Accessories We Love</span>
+            <h3>Scarves, sunglasses and raffia textures for packing lists.</h3>
+            <a href="#holiday-essentials">Explore Holiday Essentials</a>
+          </article>
+        </div>
+      </section>
+
       <section class="occasion-section reveal-section" id="occasion">
         <div class="section-heading centered">
           <p class="eyebrow">Occasion Edit</p>
@@ -151,6 +180,84 @@
         </div>
       </section>
 
+      <section class="look-section reveal-section" id="shop-the-look">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Styled For You</p>
+            <h2>Shop the Look</h2>
+          </div>
+          <p>Curated product pairings for holidays, festivals and everyday summer dressing. Buy each piece through its secure store link.</p>
+        </div>
+        <div class="look-grid">
+          <article data-look-products="2,10,14">
+            <h3>Holiday Look</h3>
+            <p>Silk-style scarf, black sunglasses and raffia earrings.</p>
+            <div class="look-products" data-look-grid></div>
+          </article>
+          <article data-look-products="3,6,9">
+            <h3>Festival Look</h3>
+            <p>Crochet texture, a flower clip and oversized frames.</p>
+            <div class="look-products" data-look-grid></div>
+          </article>
+          <article data-look-products="8,11,4">
+            <h3>Everyday Summer Look</h3>
+            <p>A tortoise claw clip, pearl chain and soft pearl clips.</p>
+            <div class="look-products" data-look-grid></div>
+          </article>
+          <article data-look-products="5,12,13">
+            <h3>Summer Evening Look</h3>
+            <p>Sparkling clips, a straw clutch and playful raffia earrings.</p>
+            <div class="look-products" data-look-grid></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="under-section reveal-section" id="under-20" data-section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Smart Summer Picks</p>
+            <h2>Under &pound;20 Summer Picks</h2>
+          </div>
+          <p>Scarves, hair clips, eyeglass chains, earrings and jewellery selected for easy styling.</p>
+        </div>
+        <div class="horizontal-products" data-under-20-grid></div>
+      </section>
+
+      <section class="quiz-section reveal-section" id="style-quiz">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Find Your Summer Style</p>
+            <h2>Personalised Picks</h2>
+          </div>
+          <p>Answer three quick questions and get a compact edit of products to shop through Wix.</p>
+        </div>
+        <form class="style-quiz" data-style-quiz>
+          <fieldset>
+            <legend>What are you shopping for?</legend>
+            <label><input type="radio" name="occasion" value="Holiday" required /> Holiday</label>
+            <label><input type="radio" name="occasion" value="Festival" /> Festival</label>
+            <label><input type="radio" name="occasion" value="Everyday" /> Everyday</label>
+            <label><input type="radio" name="occasion" value="Evening" /> Evening</label>
+          </fieldset>
+          <fieldset>
+            <legend>What style do you prefer?</legend>
+            <label><input type="radio" name="style" value="Minimal" required /> Minimal</label>
+            <label><input type="radio" name="style" value="Elegant" /> Elegant</label>
+            <label><input type="radio" name="style" value="Bold" /> Bold</label>
+            <label><input type="radio" name="style" value="Boho" /> Boho</label>
+          </fieldset>
+          <fieldset>
+            <legend>What accessory are you looking for?</legend>
+            <label><input type="radio" name="category" value="Hair Accessories" required /> Hair Accessories</label>
+            <label><input type="radio" name="category" value="Sunglasses" /> Sunglasses</label>
+            <label><input type="radio" name="category" value="Bags" /> Bags</label>
+            <label><input type="radio" name="category" value="Jewellery" /> Jewellery</label>
+          </fieldset>
+          <button class="button button-dark" type="submit">Show My Edit</button>
+        </form>
+        <div class="quiz-results" data-quiz-results aria-live="polite"></div>
+      </section>
+
       <section class="products-section reveal-section" id="summer-edit" data-section>
         <div class="section-heading">
           <div>
@@ -170,10 +277,20 @@
             <button class="filter-button" type="button" data-filter="Bags" id="bags">Bags</button>
             <button class="filter-button" type="button" data-filter="Jewellery" id="jewellery">Jewellery</button>
           </div>
+          <div class="filters occasion-filters" aria-label="Product occasion filters">
+            <button class="filter-button active" type="button" data-occasion-filter="All">All Occasions</button>
+            <button class="filter-button" type="button" data-occasion-filter="Holiday" id="holiday-essentials">Holiday</button>
+            <button class="filter-button" type="button" data-occasion-filter="Festival">Festival</button>
+            <button class="filter-button" type="button" data-occasion-filter="Everyday">Everyday</button>
+            <button class="filter-button" type="button" data-occasion-filter="Evening">Evening</button>
+            <button class="filter-button" type="button" data-occasion-filter="Gift">Gift</button>
+            <button class="filter-button" type="button" data-under-20-filter>Under &pound;20</button>
+          </div>
 
           <label class="search-control">
             <span>Search products</span>
             <input type="search" placeholder="Search products" autocomplete="off" data-search-input />
+            <div class="search-suggestions" data-search-suggestions></div>
           </label>
 
           <label class="sort-control">
@@ -291,6 +408,60 @@
         </div>
       </section>
 
+      <section class="timeline-section reveal-section" id="delivery-timeline">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Clear Delivery</p>
+            <h2>How delivery works</h2>
+          </div>
+          <p>Selected styles may be available with fast UK delivery. Final delivery details are shown at checkout.</p>
+        </div>
+        <div class="timeline-grid">
+          <article><span>01</span><h3>Order placed securely</h3><p>Buy Now opens our secure store partner checkout.</p></article>
+          <article><span>02</span><h3>Your item is prepared</h3><p>Your order is reviewed and prepared with our fulfilment partners.</p></article>
+          <article><span>03</span><h3>Tracking is shared when available</h3><p>Tracking details are sent when supported by the delivery route.</p></article>
+          <article><span>04</span><h3>Delivered to your address</h3><p>Final delivery details are shown before payment.</p></article>
+        </div>
+      </section>
+
+      <section class="gift-section reveal-section" id="giftable">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Easy Gifts</p>
+            <h2>Easy Gifts for Summer Plans</h2>
+          </div>
+          <p>Lightweight, polished accessories with gifting appeal for birthdays, holidays and weekends away.</p>
+        </div>
+        <div class="horizontal-products" data-gift-grid></div>
+      </section>
+
+      <section class="journal-section reveal-section" id="style-journal">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Style Journal</p>
+            <h2>Summer styling notes</h2>
+          </div>
+          <p>Short editorial guides with product links for packing, festivals and everyday styling.</p>
+        </div>
+        <div class="journal-grid">
+          <a href="style-journal/summer-holiday-accessories.html"><span>Guide</span><h3>5 Accessories to Pack for a Summer Holiday</h3></a>
+          <a href="style-journal/style-a-hair-scarf.html"><span>How To</span><h3>How to Style a Hair Scarf This Summer</h3></a>
+          <a href="style-journal/festival-accessories.html"><span>Festival</span><h3>Festival Accessories That Complete the Look</h3></a>
+          <a href="style-journal/under-20-summer-edit.html"><span>Edit</span><h3>The Under &pound;20 Summer Edit</h3></a>
+        </div>
+      </section>
+
+      <section class="recent-section reveal-section" id="recently-viewed">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Recently Viewed</p>
+            <h2>Your latest pieces</h2>
+          </div>
+          <p>Saved locally in your browser so you can return to products you viewed.</p>
+        </div>
+        <div class="horizontal-products" data-recently-viewed-grid></div>
+      </section>
+
       <section class="faq-section reveal-section" id="faq">
         <div class="section-heading centered">
           <p class="eyebrow">Questions</p>
@@ -405,6 +576,10 @@
           <p class="modal-price" data-modal-price></p>
           <p id="quick-view-description" data-modal-description></p>
           <p class="modal-note">Checkout and delivery details are completed securely through our store partner.</p>
+          <div class="modal-recommendations">
+            <h3>Complete the Look</h3>
+            <div data-modal-recommendations></div>
+          </div>
           <a class="button button-dark" href="#" target="_blank" rel="noopener" data-modal-buy>Buy Now</a>
         </div>
       </div>
@@ -421,6 +596,19 @@
         <button class="modal-close" type="button" aria-label="Close wishlist" data-close-wishlist>&times;</button>
         <h2 id="wishlist-title">Your Wishlist</h2>
         <div class="wishlist-items" data-wishlist-items></div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" data-exit-intent hidden>
+      <div class="wishlist-modal exit-modal" role="dialog" aria-modal="true" aria-labelledby="exit-title" tabindex="-1">
+        <button class="modal-close" type="button" aria-label="Close popup" data-exit-close>&times;</button>
+        <p class="eyebrow">Before you go</p>
+        <h2 id="exit-title">Still choosing your summer edit?</h2>
+        <p>Explore our curated festival and holiday picks before you go.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#under-20">View Summer Picks</a>
+          <button class="button button-ghost" type="button" data-exit-close>No thanks</button>
+        </div>
       </div>
     </div>
 
