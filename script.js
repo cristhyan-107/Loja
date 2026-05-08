@@ -197,6 +197,7 @@ function saveWishlist() {
 }
 
 function updateWishlistCount() {
+  if (!selectors.wishlistCount) return;
   selectors.wishlistCount.textContent = state.wishlist.length;
 }
 
@@ -230,6 +231,7 @@ function getFilteredProducts() {
 }
 
 function renderProducts() {
+  if (!selectors.productGrid) return;
   const visibleProducts = getFilteredProducts();
 
   if (!visibleProducts.length) {
@@ -252,7 +254,7 @@ function renderProducts() {
             type="button"
             aria-label="${isWishlisted(product.id) ? "Remove from wishlist" : "Add to wishlist"}: ${product.name}"
             data-wishlist-toggle="${product.id}"
-          >♡</button>
+          >&#9825;</button>
           <div
             class="product-image"
             data-initial="${productInitial(product.name)}"
@@ -301,6 +303,7 @@ function toggleWishlist(productId) {
 
 function renderWishlistModal() {
   const container = document.querySelector("[data-wishlist-items]");
+  if (!container) return;
   const wishlistProducts = products.filter((product) => state.wishlist.includes(product.id));
 
   if (!wishlistProducts.length) {
@@ -314,7 +317,7 @@ function renderWishlistModal() {
         <article class="wishlist-item">
           <div>
             <h3>${product.name}</h3>
-            <p>${product.category} · ${formatPrice(product.price)}</p>
+            <p>${product.category} &middot; ${formatPrice(product.price)}</p>
           </div>
           <a
             class="buy-button"
@@ -388,6 +391,7 @@ function trackBuyClick(productName, productLink) {
 }
 
 function injectProductSchema() {
+  if (!selectors.productGrid) return;
   const schema = {
     "@context": "https://schema.org",
     "@graph": products.map((product) => ({
@@ -412,11 +416,12 @@ function injectProductSchema() {
 }
 
 function initHeaderBehaviour() {
+  if (!selectors.header) return;
   const onScroll = () => {
     const isScrolled = window.scrollY > 18;
     selectors.header.classList.toggle("is-scrolled", isScrolled);
-    selectors.backToTop.classList.toggle("visible", window.scrollY > 650);
-    selectors.mobileCta.classList.toggle("visible", window.scrollY > window.innerHeight * 0.75);
+    selectors.backToTop?.classList.toggle("visible", window.scrollY > 650);
+    selectors.mobileCta?.classList.toggle("visible", window.scrollY > window.innerHeight * 0.75);
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -424,6 +429,7 @@ function initHeaderBehaviour() {
 }
 
 function initNavigation() {
+  if (!selectors.menuToggle || !selectors.nav) return;
   selectors.menuToggle.addEventListener("click", () => {
     const isOpen = selectors.nav.classList.toggle("open");
     selectors.menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -478,6 +484,7 @@ function initRevealAnimation() {
 }
 
 function initControls() {
+  if (!selectors.productGrid) return;
   selectors.filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       state.category = button.dataset.filter;
@@ -486,31 +493,31 @@ function initControls() {
     });
   });
 
-  selectors.searchInput.addEventListener("input", (event) => {
+  selectors.searchInput?.addEventListener("input", (event) => {
     state.search = event.target.value;
     renderProducts();
   });
 
-  selectors.sortSelect.addEventListener("change", (event) => {
+  selectors.sortSelect?.addEventListener("change", (event) => {
     state.sort = event.target.value;
     renderProducts();
   });
 }
 
 function initModals() {
-  selectors.productGrid.addEventListener("click", handleProductGridClick);
+  selectors.productGrid?.addEventListener("click", handleProductGridClick);
 
-  document.querySelector("[data-open-wishlist]").addEventListener("click", () => {
+  document.querySelector("[data-open-wishlist]")?.addEventListener("click", () => {
     renderWishlistModal();
     openModal(selectors.wishlistModal);
   });
 
-  document.querySelector("[data-close-modal]").addEventListener("click", () => closeModal(selectors.quickViewModal));
+  document.querySelector("[data-close-modal]")?.addEventListener("click", () => closeModal(selectors.quickViewModal));
   document
     .querySelector("[data-close-wishlist]")
-    .addEventListener("click", () => closeModal(selectors.wishlistModal));
+    ?.addEventListener("click", () => closeModal(selectors.wishlistModal));
 
-  [selectors.quickViewModal, selectors.wishlistModal].forEach((modal) => {
+  [selectors.quickViewModal, selectors.wishlistModal].filter(Boolean).forEach((modal) => {
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
         closeModal(modal);
@@ -519,7 +526,9 @@ function initModals() {
   });
 
   document.addEventListener("keydown", (event) => {
-    const openModalElement = [selectors.quickViewModal, selectors.wishlistModal].find((modal) => !modal.hidden);
+    const openModalElement = [selectors.quickViewModal, selectors.wishlistModal]
+      .filter(Boolean)
+      .find((modal) => !modal.hidden);
 
     if (event.key === "Tab" && openModalElement) {
       const focusableItems = openModalElement.querySelectorAll(
@@ -542,7 +551,7 @@ function initModals() {
     }
 
     if (event.key !== "Escape") return;
-    [selectors.quickViewModal, selectors.wishlistModal].forEach((modal) => {
+    [selectors.quickViewModal, selectors.wishlistModal].filter(Boolean).forEach((modal) => {
       if (!modal.hidden) closeModal(modal);
     });
   });
@@ -552,6 +561,7 @@ function initNewsletter() {
   const form = document.querySelector("[data-newsletter-form]");
   const input = document.querySelector("[data-newsletter-email]");
   const message = document.querySelector("[data-newsletter-message]");
+  if (!form || !input || !message) return;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -579,8 +589,194 @@ function initGlobalClicks() {
     }
   });
 
-  selectors.backToTop.addEventListener("click", () => {
+  selectors.backToTop?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function loadAnalytics() {
+  // Add Google Analytics or other analytics scripts here after analytics consent is granted.
+  console.log("Analytics consent granted");
+}
+
+function loadMarketingPixels() {
+  // Add Meta Pixel, TikTok Pixel or other marketing pixels here after marketing consent is granted.
+  console.log("Marketing consent granted");
+}
+
+function getCookieConsent() {
+  try {
+    return JSON.parse(localStorage.getItem("meridianCookieConsent"));
+  } catch {
+    return null;
+  }
+}
+
+function saveCookieConsent(consent) {
+  localStorage.setItem("meridianCookieConsent", JSON.stringify(consent));
+
+  if (consent.analytics) {
+    loadAnalytics();
+  }
+
+  if (consent.marketing) {
+    loadMarketingPixels();
+  }
+}
+
+function createCookieConsentUI() {
+  const banner = document.createElement("section");
+  banner.className = "cookie-banner";
+  banner.setAttribute("aria-label", "Cookie consent");
+  banner.hidden = true;
+  banner.innerHTML = `
+    <p>
+      We use cookies to improve your browsing experience, understand site performance and support marketing where
+      permitted. You can accept all cookies, reject non-essential cookies or manage your preferences.
+    </p>
+    <div class="cookie-actions">
+      <button class="cookie-button primary" type="button" data-cookie-accept>Accept all</button>
+      <button class="cookie-button" type="button" data-cookie-reject>Reject non-essential</button>
+      <button class="cookie-button" type="button" data-cookie-manage>Manage preferences</button>
+    </div>
+  `;
+
+  const modal = document.createElement("div");
+  modal.className = "modal-backdrop";
+  modal.hidden = true;
+  modal.setAttribute("data-cookie-modal", "");
+  modal.innerHTML = `
+    <div class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-title" tabindex="-1">
+      <button class="modal-close" type="button" aria-label="Close cookie preferences" data-cookie-close>&times;</button>
+      <h2 id="cookie-title">Cookie preferences</h2>
+      <p>Choose which optional cookies Meridian Attire may use. Strictly necessary cookies are always active.</p>
+      <div class="cookie-choice">
+        <div>
+          <h3>Strictly necessary cookies</h3>
+          <p>Required for security, page navigation, cookie preferences and external checkout links.</p>
+        </div>
+        <label class="toggle" aria-label="Strictly necessary cookies always active">
+          <input type="checkbox" checked disabled />
+          <span></span>
+        </label>
+      </div>
+      <div class="cookie-choice">
+        <div>
+          <h3>Analytics cookies</h3>
+          <p>Help us understand site performance and product interest.</p>
+        </div>
+        <label class="toggle" aria-label="Analytics cookies">
+          <input type="checkbox" data-cookie-analytics />
+          <span></span>
+        </label>
+      </div>
+      <div class="cookie-choice">
+        <div>
+          <h3>Marketing cookies</h3>
+          <p>Support advertising measurement and marketing where permitted.</p>
+        </div>
+        <label class="toggle" aria-label="Marketing cookies">
+          <input type="checkbox" data-cookie-marketing />
+          <span></span>
+        </label>
+      </div>
+      <div class="cookie-choice">
+        <div>
+          <h3>Preference cookies</h3>
+          <p>Remember choices such as display and cookie settings.</p>
+        </div>
+        <label class="toggle" aria-label="Preference cookies">
+          <input type="checkbox" data-cookie-preferences />
+          <span></span>
+        </label>
+      </div>
+      <div class="cookie-modal-actions">
+        <button class="cookie-button" type="button" data-cookie-modal-reject>Reject non-essential</button>
+        <button class="cookie-button primary" type="button" data-cookie-save>Save choices</button>
+      </div>
+    </div>
+  `;
+
+  document.body.append(banner, modal);
+  return { banner, modal };
+}
+
+function initCookieConsent() {
+  const { banner, modal } = createCookieConsentUI();
+  const existingConsent = getCookieConsent();
+
+  if (existingConsent) {
+    saveCookieConsent(existingConsent);
+  } else {
+    banner.hidden = false;
+  }
+
+  const closePreferences = () => {
+    modal.hidden = true;
+    document.body.classList.remove("modal-open");
+  };
+
+  const storeConsent = (consent) => {
+    saveCookieConsent({ necessary: true, ...consent });
+    banner.hidden = true;
+    closePreferences();
+  };
+
+  banner.querySelector("[data-cookie-accept]").addEventListener("click", () => {
+    storeConsent({ analytics: true, marketing: true, preferences: true });
+  });
+
+  banner.querySelector("[data-cookie-reject]").addEventListener("click", () => {
+    storeConsent({ analytics: false, marketing: false, preferences: false });
+  });
+
+  banner.querySelector("[data-cookie-manage]").addEventListener("click", () => {
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    requestAnimationFrame(() => modal.querySelector("[role='dialog']").focus());
+  });
+
+  modal.querySelector("[data-cookie-close]").addEventListener("click", closePreferences);
+  modal.querySelector("[data-cookie-modal-reject]").addEventListener("click", () => {
+    storeConsent({ analytics: false, marketing: false, preferences: false });
+  });
+  modal.querySelector("[data-cookie-save]").addEventListener("click", () => {
+    storeConsent({
+      analytics: modal.querySelector("[data-cookie-analytics]").checked,
+      marketing: modal.querySelector("[data-cookie-marketing]").checked,
+      preferences: modal.querySelector("[data-cookie-preferences]").checked,
+    });
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closePreferences();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closePreferences();
+    }
+  });
+}
+
+function initContactForm() {
+  const form = document.querySelector("[data-contact-form]");
+  const message = document.querySelector("[data-contact-message]");
+  if (!form || !message) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      message.textContent = "Please complete the required fields.";
+      form.reportValidity();
+      return;
+    }
+
+    form.reset();
+    message.textContent = "Thank you for contacting Meridian Attire. We aim to reply within 12 business days.";
   });
 }
 
@@ -595,6 +791,8 @@ function init() {
   initControls();
   initModals();
   initNewsletter();
+  initContactForm();
+  initCookieConsent();
   initGlobalClicks();
 }
 

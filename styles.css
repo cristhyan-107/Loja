@@ -47,7 +47,8 @@ a {
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }
 
@@ -152,7 +153,8 @@ a {
   transition: color 180ms ease;
 }
 
-.site-nav a::after {
+.site-nav a::after,
+.nav-dropdown summary::after {
   content: "";
   position: absolute;
   left: 0;
@@ -166,13 +168,61 @@ a {
 }
 
 .site-nav a:hover,
-.site-nav a.active {
+.site-nav a.active,
+.nav-dropdown summary:hover {
   color: var(--ink);
 }
 
 .site-nav a.active::after,
-.site-nav a:hover::after {
+.site-nav a:hover::after,
+.nav-dropdown summary:hover::after {
   transform: scaleX(1);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  padding: 28px 0;
+  cursor: pointer;
+  list-style: none;
+  transition: color 180ms ease;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown div {
+  position: absolute;
+  top: calc(100% - 10px);
+  right: 0;
+  display: grid;
+  min-width: 230px;
+  gap: 2px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 253, 248, 0.98);
+  box-shadow: var(--soft-shadow);
+}
+
+.nav-dropdown div a {
+  padding: 9px 10px;
+  border-radius: 8px;
+}
+
+.nav-dropdown div a::after {
+  display: none;
+}
+
+.nav-dropdown div a:hover {
+  background: var(--sand-light);
 }
 
 .header-actions,
@@ -922,7 +972,7 @@ h1 {
 
 .site-footer {
   display: grid;
-  grid-template-columns: minmax(260px, 1.1fr) repeat(3, minmax(130px, 0.45fr));
+  grid-template-columns: minmax(280px, 1.4fr) repeat(4, minmax(130px, 0.45fr));
   gap: 34px;
   padding: 58px clamp(18px, 5vw, 76px) 30px;
   background: var(--ink);
@@ -959,11 +1009,174 @@ h1 {
   color: var(--white);
 }
 
+.footer-brand-block {
+  max-width: 520px;
+}
+
+.footer-trust-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.footer-trust-list span {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .copyright {
   grid-column: 1 / -1;
   padding-top: 26px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 0.86rem;
+}
+
+.policy-main {
+  padding-top: 110px;
+}
+
+.policy-hero {
+  padding: 92px clamp(18px, 5vw, 76px) 54px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(251, 250, 246, 0.98), rgba(251, 250, 246, 0.78)),
+    radial-gradient(circle at 80% 18%, rgba(217, 199, 164, 0.32), transparent 30%);
+}
+
+.policy-hero h1 {
+  max-width: 960px;
+  margin-bottom: 20px;
+  font-size: clamp(3.2rem, 7vw, 7.4rem);
+}
+
+.policy-hero p:last-child {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.policy-content,
+.contact-layout {
+  width: min(1040px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.policy-content {
+  padding: 64px 0 100px;
+}
+
+.policy-content > p,
+.policy-content li {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.policy-content h2 {
+  margin: 42px 0 14px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  font-size: clamp(1.65rem, 3vw, 2.55rem);
+  font-weight: 500;
+}
+
+.policy-content a {
+  color: var(--olive-deep);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.policy-content ul {
+  margin: 0 0 22px;
+  padding-left: 22px;
+}
+
+.details-card,
+.contact-card,
+.contact-form {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: var(--soft-shadow);
+}
+
+.details-card {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 28px;
+  padding: 24px;
+}
+
+.details-card p {
+  margin: 0;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(320px, 1.18fr);
+  gap: 24px;
+  padding: 64px 0 100px;
+}
+
+.contact-card,
+.contact-form {
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.contact-card h2,
+.contact-form h2 {
+  margin-bottom: 22px;
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  font-weight: 500;
+}
+
+.contact-card h3 {
+  margin: 28px 0 10px;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+
+.contact-card p {
+  color: var(--muted);
+}
+
+.contact-form {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-form label {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 13px 14px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.contact-form input,
+.contact-form select {
+  min-height: 48px;
+}
+
+.contact-form textarea {
+  resize: vertical;
 }
 
 .modal-backdrop {
@@ -975,6 +1188,155 @@ h1 {
   padding: 20px;
   background: rgba(23, 21, 17, 0.42);
   backdrop-filter: blur(8px);
+}
+
+.cookie-banner {
+  position: fixed;
+  z-index: 70;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+.cookie-banner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.cookie-button {
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0 14px;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 0.82rem;
+}
+
+.cookie-button.primary {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--white);
+}
+
+.cookie-modal {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 12px;
+  padding: clamp(26px, 4vw, 42px);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.cookie-modal h2 {
+  margin-bottom: 14px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 500;
+}
+
+.cookie-modal p {
+  color: var(--muted);
+}
+
+.cookie-choice {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.cookie-choice h3 {
+  margin-bottom: 6px;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.cookie-choice p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.toggle {
+  position: relative;
+  display: inline-flex;
+  width: 52px;
+  height: 30px;
+}
+
+.toggle input {
+  opacity: 0;
+}
+
+.toggle span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #d8d0c2;
+  cursor: pointer;
+  transition: background 180ms ease;
+}
+
+.toggle span::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--white);
+  transition: transform 180ms ease;
+}
+
+.toggle input:checked + span {
+  background: var(--olive-deep);
+}
+
+.toggle input:checked + span::after {
+  transform: translateX(22px);
+}
+
+.toggle input:disabled + span {
+  cursor: not-allowed;
+  opacity: 0.72;
+}
+
+.cookie-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 22px;
 }
 
 .modal-backdrop[hidden] {
@@ -1169,8 +1531,22 @@ h1 {
     padding: 13px 0;
   }
 
-  .site-nav a::after {
+  .site-nav a::after,
+  .nav-dropdown summary::after {
     bottom: 8px;
+  }
+
+  .nav-dropdown summary {
+    min-height: auto;
+    padding: 13px 0;
+  }
+
+  .nav-dropdown div {
+    position: static;
+    padding: 6px 0 8px 14px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   .header-actions {
@@ -1270,7 +1646,9 @@ h1 {
   .care-grid,
   .newsletter-section,
   .site-footer,
-  .quick-view-modal {
+  .quick-view-modal,
+  .contact-layout,
+  .cookie-banner {
     grid-template-columns: 1fr;
   }
 
@@ -1314,6 +1692,28 @@ h1 {
   .about-visual,
   .modal-product-image {
     min-height: 360px;
+  }
+
+  .policy-main {
+    padding-top: 104px;
+  }
+
+  .policy-hero {
+    padding: 72px 16px 42px;
+  }
+
+  .policy-content,
+  .contact-layout {
+    width: calc(100% - 32px);
+  }
+
+  .cookie-actions,
+  .cookie-modal-actions {
+    justify-content: stretch;
+  }
+
+  .cookie-button {
+    flex: 1 1 auto;
   }
 
   .mobile-sticky-cta {
