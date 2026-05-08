@@ -3,131 +3,325 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meridian Attire | Summer Accessories Boutique UK</title>
     <meta
       name="description"
-      content="Meridian Attire is a UK-focused online boutique for elegant summer accessories, festival styling, holidays and everyday outfits."
+      content="Shop elegant summer accessories for holidays, festivals and everyday styling. Discover scarves, hair clips, sunglasses, bags and jewellery curated for effortless UK style."
     />
-    <title>Meridian Attire | Your Summer Edit Starts Here</title>
+    <meta property="og:title" content="Meridian Attire | Summer Accessories Boutique UK" />
+    <meta
+      property="og:description"
+      content="Elegant scarves, hair clips, sunglasses, bags and jewellery curated for effortless UK summer style."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cristhyan-107.github.io/Loja/" />
+    <meta property="og:image" content="https://cristhyan-107.github.io/Loja/og-meridian-attire.jpg" />
+    <meta name="theme-color" content="#fbfaf6" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header">
+    <a class="skip-link" href="#summer-edit">Skip to products</a>
+
+    <div class="announcement-bar">
+      <p>Fast UK Delivery on selected styles <span></span> Summer Edit now live</p>
+    </div>
+
+    <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Meridian Attire home">Meridian Attire</a>
 
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#summer-edit">Summer Edit</a>
-        <a href="#hair-accessories">Hair Accessories</a>
-        <a href="#sunglasses">Sunglasses</a>
-        <a href="#bags">Bags</a>
-        <a href="#about">About</a>
-        <a href="#delivery">Delivery</a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#home" data-nav-link>Home</a>
+        <a href="#summer-edit" data-nav-link>Summer Edit</a>
+        <a href="#festival-edit" data-nav-link>Festival Edit</a>
+        <a href="#hair-accessories" data-nav-link>Hair Accessories</a>
+        <a href="#sunglasses" data-nav-link>Sunglasses</a>
+        <a href="#bags" data-nav-link>Bags</a>
+        <a href="#jewellery" data-nav-link>Jewellery</a>
+        <a href="#delivery" data-nav-link>Delivery</a>
       </nav>
 
-      <a class="header-cta" href="#summer-edit">Shop Now</a>
+      <div class="header-actions">
+        <button class="wishlist-link" type="button" data-open-wishlist aria-label="Open wishlist">
+          Wishlist (<span data-wishlist-count>0</span>)
+        </button>
+        <a class="header-cta" href="#summer-edit">Shop Now</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          data-menu-toggle
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <main>
-      <section class="hero" id="home">
+      <section class="hero reveal-section" id="home" data-section>
         <div class="hero-copy">
           <p class="eyebrow">Summer accessories boutique</p>
           <h1>Your Summer Edit Starts Here</h1>
           <p>
-            Discover elegant summer accessories for holidays, festivals and everyday outfits
-            curated for effortless UK style.
+            Elegant accessories for holidays, festivals and everyday summer styling curated for effortless UK looks.
           </p>
-          <a class="button button-dark" href="#summer-edit">Shop the Summer Edit</a>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#summer-edit">Shop Summer Edit</a>
+            <a class="button button-ghost" href="#festival-edit">Explore Festival Styles</a>
+          </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <div class="editorial-card card-one">
-            <span>Silk scarves</span>
-          </div>
-          <div class="editorial-card card-two">
-            <span>Festival hair</span>
-          </div>
-          <div class="editorial-card card-three">
-            <span>Sunlit details</span>
+        <div class="hero-visual" role="img" aria-label="Editorial summer accessories placeholder">
+          <div class="hero-frame">
+            <div class="editorial-sun"></div>
+            <span>Scarves</span>
+            <strong>Festival Hair</strong>
+            <em>Summer evenings</em>
           </div>
         </div>
       </section>
 
-      <section class="benefits" aria-label="Shopping benefits">
+      <section class="benefits reveal-section" aria-label="Shopping benefits">
         <article>
-          <span>01</span>
+          <span class="benefit-icon" aria-hidden="true">UK</span>
           <h2>Fast UK Delivery</h2>
+          <p>Selected styles are available with quicker delivery options.</p>
         </article>
         <article>
-          <span>02</span>
+          <span class="benefit-icon" aria-hidden="true">ED</span>
           <h2>Curated Summer Styles</h2>
+          <p>Pieces chosen for holidays, festivals and everyday outfits.</p>
         </article>
         <article>
-          <span>03</span>
-          <h2>Secure Checkout</h2>
+          <span class="benefit-icon" aria-hidden="true">WX</span>
+          <h2>Secure Wix Checkout</h2>
+          <p>Purchases are completed securely through our store partner.</p>
         </article>
         <article>
-          <span>04</span>
-          <h2>Easy Returns</h2>
+          <span class="benefit-icon" aria-hidden="true">RT</span>
+          <h2>Easy Returns Guidance</h2>
+          <p>Clear guidance is shown during the purchase process.</p>
         </article>
       </section>
 
-      <section class="products-section" id="summer-edit">
+      <section class="occasion-section reveal-section" id="occasion">
+        <div class="section-heading centered">
+          <p class="eyebrow">Occasion Edit</p>
+          <h2>Shop by Occasion</h2>
+        </div>
+        <div class="occasion-grid">
+          <article class="occasion-card tone-holiday">
+            <div class="occasion-image" role="img" aria-label="Holiday accessories placeholder"></div>
+            <h3>Holiday Looks</h3>
+            <p>Light layers and polished accents for sunlit escapes.</p>
+            <a href="#summer-edit">Explore</a>
+          </article>
+          <article class="occasion-card tone-festival">
+            <div class="occasion-image" role="img" aria-label="Festival accessories placeholder"></div>
+            <h3>Festival Weekends</h3>
+            <p>Statement pieces made for music, movement and long days.</p>
+            <a href="#festival-edit">Explore</a>
+          </article>
+          <article class="occasion-card tone-everyday">
+            <div class="occasion-image" role="img" aria-label="Everyday styling placeholder"></div>
+            <h3>Everyday Styling</h3>
+            <p>Easy finishing touches for casual UK summer dressing.</p>
+            <a href="#summer-edit">Explore</a>
+          </article>
+          <article class="occasion-card tone-evening">
+            <div class="occasion-image" role="img" aria-label="Summer evening accessories placeholder"></div>
+            <h3>Summer Evenings</h3>
+            <p>Refined details for dinners, events and warm nights out.</p>
+            <a href="#summer-edit">Explore</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="products-section reveal-section" id="summer-edit" data-section>
         <div class="section-heading">
-          <p class="eyebrow">Summer Edit</p>
-          <h2>Shop the Summer Edit</h2>
-          <p>Lightweight accessories designed for sunlit days, city breaks and festival weekends.</p>
+          <div>
+            <p class="eyebrow">Summer Edit</p>
+            <h2>Shop the Summer Edit</h2>
+          </div>
+          <p>Lightweight accessories selected for sunlit days, city breaks and festival weekends.</p>
         </div>
 
-        <div class="filters" aria-label="Product category filters">
-          <button class="filter-button active" type="button" data-filter="All">All</button>
-          <button class="filter-button" type="button" data-filter="Hair Accessories" id="hair-accessories">
-            Hair Accessories
-          </button>
-          <button class="filter-button" type="button" data-filter="Sunglasses" id="sunglasses">Sunglasses</button>
-          <button class="filter-button" type="button" data-filter="Bags" id="bags">Bags</button>
-          <button class="filter-button" type="button" data-filter="Jewellery">Jewellery</button>
+        <div class="shop-controls" aria-label="Product controls">
+          <div class="filters" aria-label="Product category filters">
+            <button class="filter-button active" type="button" data-filter="All">All</button>
+            <button class="filter-button" type="button" data-filter="Hair Accessories" id="hair-accessories">
+              Hair Accessories
+            </button>
+            <button class="filter-button" type="button" data-filter="Sunglasses" id="sunglasses">Sunglasses</button>
+            <button class="filter-button" type="button" data-filter="Bags" id="bags">Bags</button>
+            <button class="filter-button" type="button" data-filter="Jewellery" id="jewellery">Jewellery</button>
+          </div>
+
+          <label class="search-control">
+            <span>Search products</span>
+            <input type="search" placeholder="Search products" autocomplete="off" data-search-input />
+          </label>
+
+          <label class="sort-control">
+            <span>Sort</span>
+            <select data-sort-select>
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </label>
         </div>
 
-        <div class="product-grid" id="product-grid"></div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
       </section>
 
-      <section class="festival-panel">
-        <div>
-          <p class="eyebrow">Festival Ready</p>
+      <section class="festival-section reveal-section" id="festival-edit" data-section>
+        <div class="section-heading centered">
+          <p class="eyebrow">Festival Edit</p>
           <h2>Festival Ready Accessories</h2>
+          <p>Statement hair clips, oversized sunglasses and lightweight finishing touches for your next summer plan.</p>
         </div>
-        <p>
-          From statement hair clips to oversized sunglasses, Meridian Attire brings together the finishing touches
-          for your next summer plan.
-        </p>
-        <a class="button button-light" href="#summer-edit">Explore Festival Styles</a>
+        <div class="festival-grid">
+          <article>
+            <span>01</span>
+            <h3>Statement Hair Clips</h3>
+            <p>Polished flower, pearl and rhinestone pieces with a festival mood.</p>
+            <a href="#summer-edit">Shop Hair</a>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Oversized Sunglasses</h3>
+            <p>Clean frames and confident shapes for all-day summer styling.</p>
+            <a href="#summer-edit">Shop Sunglasses</a>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Hands-Free Essentials</h3>
+            <p>Light bags and wearable accents for weekends, travel and events.</p>
+            <a href="#summer-edit">Shop Bags</a>
+          </article>
+        </div>
       </section>
 
-      <section class="about-delivery">
-        <article id="about">
-          <p class="eyebrow">Our Boutique</p>
-          <h2>About Meridian Attire</h2>
-          <p>
-            Meridian Attire is a UK-focused online boutique curating elegant, affordable and summer-ready
-            accessories for women. Our pieces are selected to help you create effortless looks for holidays,
-            festivals, weekends away and everyday styling.
-          </p>
-        </article>
+      <section class="bundle-section reveal-section" id="complete-the-look">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Style Sets</p>
+            <h2>Complete the Look</h2>
+          </div>
+          <p>Commercial edit ideas that link directly to Wix product or collection pages.</p>
+        </div>
+        <div class="bundle-grid">
+          <article>
+            <span>Summer Hair Set</span>
+            <h3>Includes: scarf + pearl clips</h3>
+            <p>Suggested price: from &pound;24.99</p>
+            <a class="button button-dark" href="#WIX_BUNDLE_LINK_1" target="_blank" rel="noopener">View Set</a>
+          </article>
+          <article>
+            <span>Festival Ready Set</span>
+            <h3>Includes: sunglasses + flower clip + mini bag</h3>
+            <p>Suggested price: from &pound;44.99</p>
+            <a class="button button-dark" href="#WIX_BUNDLE_LINK_2" target="_blank" rel="noopener">View Set</a>
+          </article>
+          <article>
+            <span>Holiday Essentials Set</span>
+            <h3>Includes: straw bag + sunglasses + jewellery</h3>
+            <p>Suggested price: from &pound;54.99</p>
+            <a class="button button-dark" href="#WIX_BUNDLE_LINK_3" target="_blank" rel="noopener">View Set</a>
+          </article>
+        </div>
+      </section>
 
-        <article id="delivery">
-          <p class="eyebrow">Shopping Details</p>
-          <h2>Delivery &amp; Returns</h2>
+      <section class="about-section reveal-section" id="about">
+        <div class="about-copy">
+          <p class="eyebrow">About Meridian Attire</p>
+          <h2>Designed for Effortless Summer Styling</h2>
           <p>
-            We aim to offer a smooth shopping experience with clear delivery information, secure checkout through
-            our store partner and simple return guidance. Delivery times and return details will be shown during
-            checkout.
+            Meridian Attire curates elegant, affordable and summer-ready accessories for women across the UK. Each
+            piece is selected to bring a polished finishing touch to holidays, festivals, weekends away and everyday
+            outfits.
           </p>
-        </article>
+        </div>
+        <div class="about-visual" role="img" aria-label="Editorial boutique accessories placeholder">
+          <span>UK summer boutique</span>
+        </div>
+      </section>
+
+      <section class="delivery-section reveal-section" id="delivery" data-section>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Customer Care</p>
+            <h2>Delivery &amp; Returns</h2>
+          </div>
+          <ul class="delivery-list">
+            <li>Orders are completed securely through our Wix store checkout.</li>
+            <li>Delivery details are shown clearly before purchase.</li>
+            <li>Selected styles are available with fast UK delivery.</li>
+            <li>Returns guidance is provided during the checkout process.</li>
+          </ul>
+        </div>
+        <div class="care-grid">
+          <article>
+            <h3>Secure Checkout</h3>
+            <p>Buy Now links open our secure Wix checkout experience.</p>
+          </article>
+          <article>
+            <h3>Clear Delivery Information</h3>
+            <p>Delivery options and estimates are displayed before purchase.</p>
+          </article>
+          <article>
+            <h3>Simple Returns Guidance</h3>
+            <p>Return information is provided with customer care details.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="faq-section reveal-section" id="faq">
+        <div class="section-heading centered">
+          <p class="eyebrow">Questions</p>
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Where do you deliver?</summary>
+            <p>We focus on customers in the United Kingdom. Delivery details are shown at checkout.</p>
+          </details>
+          <details>
+            <summary>How do I complete my purchase?</summary>
+            <p>When you click Buy Now, you will be directed to our secure Wix checkout page.</p>
+          </details>
+          <details>
+            <summary>Do you offer fast delivery?</summary>
+            <p>Selected styles are available with fast UK delivery. The final delivery estimate is shown before checkout.</p>
+          </details>
+          <details>
+            <summary>Can I return an item?</summary>
+            <p>Return information is provided during checkout and in our delivery guidance.</p>
+          </details>
+          <details>
+            <summary>Are these products selected for summer?</summary>
+            <p>Yes. Meridian Attire curates accessories designed for holidays, festivals and everyday summer styling.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="newsletter-section reveal-section" id="newsletter">
+        <div>
+          <p class="eyebrow">New Drops</p>
+          <h2>Join the Meridian List</h2>
+          <p>Get early access to new summer drops, styling edits and limited offers.</p>
+        </div>
+        <form class="newsletter-form" novalidate data-newsletter-form>
+          <label for="newsletter-email">Enter your email</label>
+          <div>
+            <input id="newsletter-email" type="email" placeholder="Enter your email" required data-newsletter-email />
+            <button class="button button-dark" type="submit">Sign Up</button>
+          </div>
+          <p class="form-message" role="status" data-newsletter-message></p>
+        </form>
       </section>
     </main>
 
@@ -136,17 +330,66 @@
         <h2>Meridian Attire</h2>
         <p>Elegant summer accessories curated for holidays, festivals and everyday UK styling.</p>
       </div>
-
-      <nav aria-label="Footer navigation">
-        <a href="#home">Home</a>
+      <nav aria-label="Quick links">
+        <h3>Quick Links</h3>
         <a href="#summer-edit">Summer Edit</a>
+        <a href="#festival-edit">Festival Edit</a>
+        <a href="#complete-the-look">Complete the Look</a>
         <a href="#about">About</a>
-        <a href="#delivery">Delivery</a>
       </nav>
-
-      <p class="trust-text">Secure checkout is completed through our trusted store partner.</p>
+      <nav aria-label="Customer care">
+        <h3>Customer Care</h3>
+        <a href="#delivery">Delivery</a>
+        <a href="#faq">FAQ</a>
+        <a href="#newsletter">Meridian List</a>
+      </nav>
+      <nav aria-label="Social links">
+        <h3>Social</h3>
+        <a href="#" aria-label="Instagram placeholder">Instagram</a>
+        <a href="#" aria-label="TikTok placeholder">TikTok</a>
+        <a href="#" aria-label="Pinterest placeholder">Pinterest</a>
+      </nav>
       <p class="copyright">&copy; 2026 Meridian Attire. All rights reserved.</p>
     </footer>
+
+    <div class="modal-backdrop" data-quick-view-modal hidden>
+      <div
+        class="quick-view-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="quick-view-title"
+        aria-describedby="quick-view-description"
+        tabindex="-1"
+      >
+        <button class="modal-close" type="button" aria-label="Close quick view" data-close-modal>&times;</button>
+        <div class="modal-product-image" data-modal-image role="img"></div>
+        <div class="modal-copy">
+          <p class="eyebrow" data-modal-category></p>
+          <h2 id="quick-view-title" data-modal-title></h2>
+          <p class="modal-price" data-modal-price></p>
+          <p id="quick-view-description" data-modal-description></p>
+          <p class="modal-note">Checkout and delivery details are completed securely through our store partner.</p>
+          <a class="button button-dark" href="#" target="_blank" rel="noopener" data-modal-buy>Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" data-wishlist-modal hidden>
+      <div
+        class="wishlist-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="wishlist-title"
+        tabindex="-1"
+      >
+        <button class="modal-close" type="button" aria-label="Close wishlist" data-close-wishlist>&times;</button>
+        <h2 id="wishlist-title">Your Wishlist</h2>
+        <div class="wishlist-items" data-wishlist-items></div>
+      </div>
+    </div>
+
+    <a class="mobile-sticky-cta" href="#summer-edit" data-mobile-cta>Shop Summer Edit</a>
+    <button class="back-to-top" type="button" aria-label="Back to top" data-back-to-top>Top</button>
 
     <script src="script.js"></script>
   </body>
