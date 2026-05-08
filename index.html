@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meridian Attire is a UK-focused online boutique for elegant summer accessories, festival styling, holidays and everyday outfits."
+    />
+    <title>Meridian Attire | Your Summer Edit Starts Here</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Meridian Attire home">Meridian Attire</a>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#summer-edit">Summer Edit</a>
+        <a href="#hair-accessories">Hair Accessories</a>
+        <a href="#sunglasses">Sunglasses</a>
+        <a href="#bags">Bags</a>
+        <a href="#about">About</a>
+        <a href="#delivery">Delivery</a>
+      </nav>
+
+      <a class="header-cta" href="#summer-edit">Shop Now</a>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Summer accessories boutique</p>
+          <h1>Your Summer Edit Starts Here</h1>
+          <p>
+            Discover elegant summer accessories for holidays, festivals and everyday outfits
+            curated for effortless UK style.
+          </p>
+          <a class="button button-dark" href="#summer-edit">Shop the Summer Edit</a>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="editorial-card card-one">
+            <span>Silk scarves</span>
+          </div>
+          <div class="editorial-card card-two">
+            <span>Festival hair</span>
+          </div>
+          <div class="editorial-card card-three">
+            <span>Sunlit details</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="Shopping benefits">
+        <article>
+          <span>01</span>
+          <h2>Fast UK Delivery</h2>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>Curated Summer Styles</h2>
+        </article>
+        <article>
+          <span>03</span>
+          <h2>Secure Checkout</h2>
+        </article>
+        <article>
+          <span>04</span>
+          <h2>Easy Returns</h2>
+        </article>
+      </section>
+
+      <section class="products-section" id="summer-edit">
+        <div class="section-heading">
+          <p class="eyebrow">Summer Edit</p>
+          <h2>Shop the Summer Edit</h2>
+          <p>Lightweight accessories designed for sunlit days, city breaks and festival weekends.</p>
+        </div>
+
+        <div class="filters" aria-label="Product category filters">
+          <button class="filter-button active" type="button" data-filter="All">All</button>
+          <button class="filter-button" type="button" data-filter="Hair Accessories" id="hair-accessories">
+            Hair Accessories
+          </button>
+          <button class="filter-button" type="button" data-filter="Sunglasses" id="sunglasses">Sunglasses</button>
+          <button class="filter-button" type="button" data-filter="Bags" id="bags">Bags</button>
+          <button class="filter-button" type="button" data-filter="Jewellery">Jewellery</button>
+        </div>
+
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section class="festival-panel">
+        <div>
+          <p class="eyebrow">Festival Ready</p>
+          <h2>Festival Ready Accessories</h2>
+        </div>
+        <p>
+          From statement hair clips to oversized sunglasses, Meridian Attire brings together the finishing touches
+          for your next summer plan.
+        </p>
+        <a class="button button-light" href="#summer-edit">Explore Festival Styles</a>
+      </section>
+
+      <section class="about-delivery">
+        <article id="about">
+          <p class="eyebrow">Our Boutique</p>
+          <h2>About Meridian Attire</h2>
+          <p>
+            Meridian Attire is a UK-focused online boutique curating elegant, affordable and summer-ready
+            accessories for women. Our pieces are selected to help you create effortless looks for holidays,
+            festivals, weekends away and everyday styling.
+          </p>
+        </article>
+
+        <article id="delivery">
+          <p class="eyebrow">Shopping Details</p>
+          <h2>Delivery &amp; Returns</h2>
+          <p>
+            We aim to offer a smooth shopping experience with clear delivery information, secure checkout through
+            our store partner and simple return guidance. Delivery times and return details will be shown during
+            checkout.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h2>Meridian Attire</h2>
+        <p>Elegant summer accessories curated for holidays, festivals and everyday UK styling.</p>
+      </div>
+
+      <nav aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#summer-edit">Summer Edit</a>
+        <a href="#about">About</a>
+        <a href="#delivery">Delivery</a>
+      </nav>
+
+      <p class="trust-text">Secure checkout is completed through our trusted store partner.</p>
+      <p class="copyright">&copy; 2026 Meridian Attire. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
